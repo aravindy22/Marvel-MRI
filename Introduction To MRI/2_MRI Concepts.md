@@ -1,133 +1,128 @@
-﻿# Main coil
-The main coil produces the strong, static magnetic field called B₀. This field is always ON in superconducting MRI.
 
-- Function of Main Coil
+# Concepts
+## Core Principle of MRI
 
-1) Aligns hydrogen protons in the body
+MRI is based on the behavior of **hydrogen protons** in the human body when placed in a **strong magnetic field**.
 
-2) Creates the base field required for MRI
+- The human body contains a large amount of **water and fat**, both rich in hydrogen atoms.
+- Each hydrogen nucleus behaves like a tiny **bar magnet**.
+- MRI detects how these protons **absorb and release energy** when disturbed by RF pulses.
 
-3) Without this field → MRI cannot work
+---
 
-| Feature        | Value                  |
-| -------------- | ---------------------- |
-| Field type     | **Static (constant)**  |
-| Field strength | **1.5 T, 3 T, 7 T**    |
-| Current        | Superconducting        |
-| Cooling        | Liquid Helium (−269°C) |
-| Always ON?     | ✅ Yes                 |
+## Main Components of an MRI System
 
+### 1. **Main Magnet (B₀)**
+- Produces a very strong, uniform magnetic field (typically **1.5T or 3T**).
+- Aligns hydrogen protons either **parallel or antiparallel** to the field.
 
-**Main coil = Creates the magnetic environment for MRI**
+### 2. **Gradient Coils**
+- Create small, rapidly changing magnetic fields.
+- Used for **spatial localization** (slice selection, phase encoding, frequency encoding).
 
-# Gradient Coils (Spatial Encoding Coils)
+### 3. **RF (Radiofrequency) Coils**
+- Transmit RF pulses to excite protons.
+- Receive the emitted MR signals from tissues.
 
-Gradient coils create small, rapidly changing magnetic fields on top of the main magnetic field.
+### 4. **Computer System**
+- Processes received signals.
+- Converts raw data (k-space) into images using **Fourier Transform**.
 
-They tell the MRI exactly where the signal is coming from.
+---
 
-| Gradient | Direction    | Purpose            |
-| -------- | ------------ | ------------------ |
-| **Gx**   | Left ↔ Right | Frequency encoding |
-| **Gy**   | Front ↔ Back | Phase encoding     |
-| **Gz**   | Head ↔ Foot  | Slice selection    |
+##  Step-by-Step: How MRI Works
 
-- Functions of Gradient Coils
+### **1. Proton Alignment**
+- In the strong magnetic field, hydrogen protons align along B₀.
+- A small excess aligns with the field, creating **net magnetization**.
 
-They perform:
+### **2. RF Excitation**
+- An RF pulse at the **Larmor frequency** is applied.
+- Protons absorb energy and tip away from the longitudinal axis.
 
-✅ Slice selection
+### **3. Signal Emission (Relaxation)**
+After RF pulse is turned off, protons return to equilibrium:
+- **T1 Relaxation (Spin–Lattice):** Recovery of longitudinal magnetization.
+- **T2 Relaxation (Spin–Spin):** Loss of phase coherence in transverse plane.
 
-✅ Frequency encoding
+### **4. Spatial Encoding**
+- **Slice Selection Gradient:** Selects a thin slice of tissue.
+- **Phase Encoding Gradient:** Encodes position in one direction.
+- **Frequency Encoding Gradient:** Encodes position in the perpendicular direction.
 
-✅ Phase encoding
+### **5. K-Space Filling**
+- Signals are stored in **k-space** (frequency domain).
+- Each line corresponds to a different phase-encoding step.
 
-**Without gradients → no image formation, only signal.**
+### **6. Image Reconstruction**
+- **Fourier Transform** converts k-space data into spatial image pixels.
+- Image contrast depends on sequence parameters (TR, TE, flip angle).
 
-✅ Why Gradient Coils Are Noisy?
+---
 
-They switch ON and OFF very fast
+##  Image Contrast in MRI
 
-This causes strong vibrations
+### Common MRI Weightings
 
-Produces loud knocking sounds
+| Weighting | Main Contrast Depends On | Typical Appearance |
+|---------|--------------------------|--------------------|
+| **T1-weighted** | T1 relaxation time | Fat bright, fluid dark |
+| **T2-weighted** | T2 relaxation time | Fluid bright |
+| **Proton Density (PD)** | Number of protons | Good anatomy, low contrast |
+| **Diffusion / FLAIR / GRE** | Specialized tissue properties | Pathology-specific |
 
+---
 
+## Why Different Tissues Look Different
 
-**Gradient coils = Give position & shape to the image**
+- Different tissues have **different T1 and T2 relaxation times**.
+- Caused by variations in:
+  - Molecular motion
+  - Water content
+  - Tissue microstructure
+- MRI sequences exploit these differences to highlight pathology.
 
-# RF coils:
+---
 
-Transmit radio waves
+## Safety Highlights
 
-Receive the MRI signal
+- **No ionizing radiation**
+- Strong magnetic field → **metal safety is critical**
+- Not suitable for some implants (older pacemakers, ferromagnetic objects)
 
-They work like a radio antenna.
+---
 
-✅ Two Types of RF Coils
-Type	Function
-Transmit (Tx)	Sends RF pulse
-Receive (Rx)	Receives signal
-Tx/Rx	Does both
+##  Advantages of MRI
 
-✅ Usually:
+- Excellent **soft tissue contrast**
+- Multiplanar imaging (axial, sagittal, coronal)
+- Functional & advanced imaging possible (fMRI, DWI, spectroscopy)
 
-Body coil = Transmitter
+---
 
-Surface coil = Receiver
+## Summary
 
+> **MRI uses strong magnetic fields and non-ionizing radiofrequency waves to excite hydrogen protons, detects their relaxation signals, encodes spatial information using gradients, and reconstructs images using Fourier Transform**
 
-✅ Function of RF Coil (Step-by-Step)
+---
 
-RF coil sends a 90° RF pulse
+## Key Developments in Magnetic Resonance
 
-Protons absorb energy and tilt
-
-Protons relax and emit signal
-
-RF coil receives signal
-
-Computer makes the image
-
-✅ Types of RF Coils
-| Coil              | Used For                       |
-| ----------------- | ------------------------------ |
-| Head coil         | Brain                          |
-| Spine coil        | Spine                          |
-| Knee coil         | Knee                           |
-| Breast coil       | Breast                         |
-| Surface coil      | Small body parts               |
-| Phased array coil | Fast & high-resolution imaging |
-
-
-✅ Key Properties
-| Feature                        | Value |
-| ------------------------------ | ----- |
-| Produces RF waves              | ✅ Yes |
-| Receives signal                | ✅ Yes |
-| Produces magnetic field        | ❌ No  |
-| Affects image quality directly | ✅ Yes |
-
-
-**RF coils = Talk to protons and listen to their signal**
-
---------------------------------------------------------------------------------------
-
-| Feature                        | Main Coil   | Gradient Coil | RF Coil  |
-| ------------------------------ | ----------- | ------------- | -------- |
-| Produces main magnetic field   | ✅ Yes       | ❌ No          | ❌ No     |
-| Produces variable field        | ❌ No        | ✅ Yes         | ❌ No     |
-| Sends RF energy                | ❌ No        | ❌ No          | ✅ Yes    |
-| Receives MRI signal            | ❌ No        | ❌ No          | ✅ Yes    |
-| Helps in spatial encoding      | ❌ No        | ✅ Yes         | ❌ No     |
-| Always ON                      | ✅ Yes       | ❌ No          | ❌ No     |
-| Directly affects image quality | ⚠️ Indirect | ⚠️ Indirect   | ✅ Direct |
-
-
-```
-Main coil → Creates the field
-
-Gradient coil → Gives position
-
-RF coil → Sends & receives signal
-```
+- **Echoing Mechanisms:**  
+  - Spin echo and gradient echoes help recover signals lost to transverse relaxation.  
+  - Spin echo uses multiple rf pulses to address inhomogeneous magnetic fields, crucial for T2-weighted imaging.  
+   
+- **Artifacts Leading to Innovations:**  
+  - MR angiography emerged from efforts to eliminate flow and motion blurring, enhancing blood vessel imaging.  
+  - Functional MRI (fMRI) developed from observing signal changes due to magnetic susceptibility differences, allowing detection of brain activity.  
+   
+- **Improvements in Imaging Speed:**  
+  - Original spin echo scans were slow; fast gradient echo methods reduced scan times significantly.  
+  - Echo planar methods enabled rapid data acquisition with gradient echoes.  
+  - Parallel imaging uses multiple rf coils to further speed up imaging.  
+   
+- **Challenges and Solutions:**  
+  - Magnetic field inhomogeneities can cause image distortion.  
+  - Improved magnet design and sequence designs are addressing these issues.  
+   
+- These developments enhance MR angiography, brain imaging, and cardiac MRI
